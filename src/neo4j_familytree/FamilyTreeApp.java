@@ -25,6 +25,11 @@ import org.neo4j.driver.Record;
 public class FamilyTreeApp extends JApplet {
     private static final Dimension DEFAULT_SIZE = new Dimension(1200, 800);
     private JGraphXAdapter<String, DefaultEdge> jgxAdapter;
+    private String name ;
+    private String sex;
+    private String dateOfBirth;
+    private String phoneNumber;
+    private String placeOfBirth;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -36,14 +41,16 @@ public class FamilyTreeApp extends JApplet {
             frame.setTitle("Family Tree Visualization");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.pack();
+            frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            
             
             JButton showInfoButton = new JButton("Thêm");
             showInfoButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // Handle button click, you can show information about the selected person here
-                    test1 app = new test1();
+                    addInfor app = new addInfor();
                     app.setVisible(true);
                     
                 }
@@ -104,8 +111,11 @@ public class FamilyTreeApp extends JApplet {
 
                                 // Thực hiện truy vấn và hiển thị thông tin
                                 String info = queryNeo4j(nodeName);
-                                test1 app = new test1();
+                                Information app = new Information(info);
+                                app.updateInformation(name, placeOfBirth, phoneNumber, sex);
                                 app.setVisible(true);
+                                
+                                
                             }
                         }
                     }
@@ -169,14 +179,11 @@ public class FamilyTreeApp extends JApplet {
 
             if (result.hasNext()) {
                 Record record = result.next();
-                String name = record.get("name").asString();
-                String sex = record.get("sex").asString();
-                String dateOfBirth = record.get("dateOfBirth").asLocalDate().toString();
-                String phoneNumber = record.get("phoneNumber").asString();
-                String placeOfBirth = record.get("placeOfBirth").asString();
-
-                return "Name: " + name + "\nSex: " + sex + "\nDate of Birth: " + dateOfBirth +
-                       "\nPhone Number: " + phoneNumber + "\nPlace of Birth: " + placeOfBirth;
+                 name = record.get("name").asString();
+                 sex = record.get("sex").asString();
+                 dateOfBirth = record.get("dateOfBirth").asLocalDate().toString();
+                 phoneNumber = record.get("phoneNumber").asString();
+                 placeOfBirth = record.get("placeOfBirth").asString();
             } else {
                 return "Person not found!";
             }
@@ -185,6 +192,7 @@ public class FamilyTreeApp extends JApplet {
         e.printStackTrace();
         return "Error while querying Neo4j.";
     }
+        return null;
 }
 
 
