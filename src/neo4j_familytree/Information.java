@@ -243,7 +243,8 @@ public class Information extends javax.swing.JFrame {
     private void addRelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelaActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        addRela app = new addRela();
+        String ten = hoten.getText();
+        addRela app = new addRela(ten);
         app.setVisible(true);
         
     }//GEN-LAST:event_addRelaActionPerformed

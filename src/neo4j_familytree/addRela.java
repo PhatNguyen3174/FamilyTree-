@@ -28,7 +28,7 @@ public class addRela extends javax.swing.JFrame {
     /**
      * Creates new form addRela
      */
-    public addRela() {
+    public addRela(String ten) {
         setTitle("Mối quan hệ");
         initComponents();
         setLocationRelativeTo(null);
@@ -36,6 +36,10 @@ public class addRela extends javax.swing.JFrame {
         name1 = hoten1.getText().toString();
         name2 = hoten2.getText().toString();
         relation = rela.getSelectedItem().toString();
+        hoten1.setText(ten);
+        
+    }
+    private addRela(){
     }
     private void loadRelationshipNames() {
        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
@@ -229,10 +233,11 @@ public class addRela extends javax.swing.JFrame {
         // TODO add your handling code here:
         try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
         try (Session session = driver.session()) {
-            String query =  "MATCH (n:Information {name: $name1})-[r:Has_Relation]-(m:Information {name: $name2}) " +
-                            "DETACHE DELETE r";
-            session.run(query, Values.parameters("name1", name1, "name2", name2));
-            JOptionPane.showMessageDialog(null, "Xóa mối quan hệ thành công");
+            String query = "MATCH (n:Information {name: $name1})-[r:Has_Relation]->(m:Information {name: $name2}) " +
+                           "SET r.relation = $relation";
+            session.run(query, Values.parameters("name1", name1, "name2", name2, "relation", relation));
+            
+            JOptionPane.showMessageDialog(null, "Sửa mối quan hệ thành công");
         }
          catch (Exception e) {
              JOptionPane.showMessageDialog(null, e);
