@@ -79,6 +79,7 @@ public class addRela extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         rela = new javax.swing.JComboBox<>();
         btnxoaRela = new javax.swing.JButton();
+        btnsuaRela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +125,14 @@ public class addRela extends javax.swing.JFrame {
             }
         });
 
+        btnsuaRela.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnsuaRela.setText("Sửa Relation");
+        btnsuaRela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsuaRelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,11 +152,13 @@ public class addRela extends javax.swing.JFrame {
                 .addComponent(rela, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(95, 95, 95))
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(24, 24, 24)
                 .addComponent(btnAddRela)
+                .addGap(79, 79, 79)
+                .addComponent(btnsuaRela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnxoaRela)
-                .addGap(85, 85, 85))
+                .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -173,7 +184,8 @@ public class addRela extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddRela)
-                    .addComponent(btnxoaRela))
+                    .addComponent(btnxoaRela)
+                    .addComponent(btnsuaRela))
                 .addGap(37, 37, 37))
         );
 
@@ -209,9 +221,24 @@ public class addRela extends javax.swing.JFrame {
          catch (Exception e) {
              JOptionPane.showMessageDialog(null, e);
           }
-        }        
+       }        
         
     }//GEN-LAST:event_btnxoaRelaActionPerformed
+
+    private void btnsuaRelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaRelaActionPerformed
+        // TODO add your handling code here:
+        try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
+        try (Session session = driver.session()) {
+            String query =  "MATCH (n:Information {name: $name1})-[r:Has_Relation]-(m:Information {name: $name2}) " +
+                            "DETACHE DELETE r";
+            session.run(query, Values.parameters("name1", name1, "name2", name2));
+            JOptionPane.showMessageDialog(null, "Xóa mối quan hệ thành công");
+        }
+         catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e);
+          }
+       } 
+    }//GEN-LAST:event_btnsuaRelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,6 +277,7 @@ public class addRela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddRela;
+    private javax.swing.JButton btnsuaRela;
     private javax.swing.JButton btnxoaRela;
     private javax.swing.JTextField hoten1;
     private javax.swing.JTextField hoten2;

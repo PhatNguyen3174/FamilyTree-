@@ -23,6 +23,8 @@ public class addInfor extends javax.swing.JFrame {
      */
     public addInfor() {
         initComponents();
+        setTitle("Thông tin người dùng");
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -58,17 +60,19 @@ public class addInfor extends javax.swing.JFrame {
         txtNote = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btnAddInfo = new javax.swing.JButton();
-        btnAddRela = new javax.swing.JButton();
+        btnSuaInfor = new javax.swing.JButton();
+        btnXoaInfo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Thêm thông tin");
+        jLabel1.setText("THÔNG TIN NGƯỜI DÙNG");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Id");
+        jLabel2.setText("Mã thông tin");
 
         txtID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtID.setName(""); // NOI18N
@@ -77,7 +81,7 @@ public class addInfor extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Tên");
+        jLabel3.setText("Họ và tên");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -135,19 +139,24 @@ public class addInfor extends javax.swing.JFrame {
         panel_AddInfoLayout.setHorizontalGroup(
             panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_AddInfoLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
                 .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
-                    .addComponent(jLabel10))
+                    .addGroup(panel_AddInfoLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                            .addComponent(jLabel10)))
+                    .addGroup(panel_AddInfoLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,11 +175,15 @@ public class addInfor extends javax.swing.JFrame {
         panel_AddInfoLayout.setVerticalGroup(
             panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_AddInfoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtID))
-                .addGap(23, 23, 23)
+                .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_AddInfoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_AddInfoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtName))
@@ -203,9 +216,9 @@ public class addInfor extends javax.swing.JFrame {
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtMajor))
                 .addGap(23, 23, 23)
-                .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNote))
+                .addGroup(panel_AddInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -220,11 +233,21 @@ public class addInfor extends javax.swing.JFrame {
             }
         });
 
-        btnAddRela.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnAddRela.setText("Thêm Relation");
-        btnAddRela.addActionListener(new java.awt.event.ActionListener() {
+        btnSuaInfor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnSuaInfor.setText("Cập nhật");
+        btnSuaInfor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSuaInfor.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        btnSuaInfor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddRelaActionPerformed(evt);
+                btnSuaInforActionPerformed(evt);
+            }
+        });
+
+        btnXoaInfo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnXoaInfo.setText("Xóa");
+        btnXoaInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaInfoActionPerformed(evt);
             }
         });
 
@@ -233,20 +256,23 @@ public class addInfor extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnXoaInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddInfo)
-                    .addComponent(btnAddRela))
-                .addContainerGap(148, Short.MAX_VALUE))
+                    .addComponent(btnSuaInfor))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
                 .addComponent(btnAddInfo)
-                .addGap(39, 39, 39)
-                .addComponent(btnAddRela)
-                .addGap(24, 24, 24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(btnSuaInfor)
+                .addGap(36, 36, 36)
+                .addComponent(btnXoaInfo)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,12 +281,14 @@ public class addInfor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_AddInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(panel_AddInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +298,9 @@ public class addInfor extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel_AddInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -300,11 +330,54 @@ public class addInfor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddInfoActionPerformed
 
-    private void btnAddRelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRelaActionPerformed
+    private void btnSuaInforActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaInforActionPerformed
         // TODO add your handling code here:
-        addRela rela = new addRela();
-        rela.setVisible(true);
-    }//GEN-LAST:event_btnAddRelaActionPerformed
+        String infoID = txtID.getText().toString();
+    
+    // Tạo câu truy vấn cập nhật thông tin
+    String query = "MATCH (i:Information {id:" + infoID + "})"
+                 + " SET i.name = '" + txtName.getText().toString() + "',"
+                 + " i.sex = '" + txtSex.getText().toString() + "',"
+                 + " i.dateOfBirth = date('" + txtDoB.getText().toString() + "'),"
+                 + " i.dateOfDeath = date('" + txtDoD.getText().toString() + "'),"
+                 + " i.phoneNumber = '" + txtPhone.getText().toString() + "',"
+                 + " i.placeOfBirth = '" + txtPoB.getText().toString() + "',"
+                 + " i.education = '" + txtEdu.getText().toString() + "',"
+                 + " i.major = '" + txtMajor.getText().toString() + "',"
+                 + " i.Notes = '" + txtNote.getText().toString() + "'";
+    
+    try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
+        try (Session session = driver.session()) {
+            session.run(query);
+            JOptionPane.showConfirmDialog(null, "Cập nhật thành công!");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+        
+    }//GEN-LAST:event_btnSuaInforActionPerformed
+
+    private void btnXoaInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaInfoActionPerformed
+        // TODO add your handling code here:
+        String name = txtName.getText().toString();
+    
+    // Tạo câu truy vấn xóa thông tin
+    String query = "MATCH (i:Information {name:" + name + "}) DETACH DELETE i";
+    
+    try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
+        try (Session session = driver.session()) {
+            session.run(query);
+            JOptionPane.showConfirmDialog(null, "Xóa thành công!");
+        }
+    }
+    
+
+     txtID.setText("");
+     txtName.setText("");
+     txtEdu.setText("");
+    // ...
+    }//GEN-LAST:event_btnXoaInfoActionPerformed
 
     /**
          * @param args the command line arguments
@@ -344,7 +417,8 @@ public class addInfor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddInfo;
-    private javax.swing.JButton btnAddRela;
+    private javax.swing.JButton btnSuaInfor;
+    private javax.swing.JButton btnXoaInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

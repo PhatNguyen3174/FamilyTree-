@@ -68,6 +68,7 @@ public class Information extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         diachi = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        addRela = new javax.swing.JButton();
         anh = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -117,6 +118,16 @@ public class Information extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("GIỚI TÍNH");
 
+        addRela.setBackground(new java.awt.Color(0, 153, 255));
+        addRela.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        addRela.setForeground(new java.awt.Color(255, 255, 255));
+        addRela.setText("THÊM RELATION");
+        addRela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addRelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -135,6 +146,10 @@ public class Information extends javax.swing.JFrame {
                     .addComponent(sodienthoai)
                     .addComponent(gioitinh))
                 .addGap(20, 20, 20))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(addRela)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel2, jLabel3, jLabel4, jLabel5});
@@ -158,7 +173,9 @@ public class Information extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(gioitinh))
-                .addGap(65, 65, 65))
+                .addGap(18, 18, 18)
+                .addComponent(addRela)
+                .addGap(24, 24, 24))
         );
 
         anh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/neo4j_familytree/nam1.png"))); // NOI18N
@@ -223,6 +240,14 @@ public class Information extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void addRelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        addRela app = new addRela();
+        app.setVisible(true);
+        
+    }//GEN-LAST:event_addRelaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +287,7 @@ public class Information extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addRela;
     private javax.swing.JLabel anh;
     private javax.swing.JLabel diachi;
     private javax.swing.JLabel gioitinh;
