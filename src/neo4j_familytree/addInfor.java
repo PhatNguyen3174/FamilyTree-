@@ -325,7 +325,10 @@ public class addInfor extends javax.swing.JFrame {
         try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
             try (Session session = driver.session()) {
                 session.run(query);
-                JOptionPane.showConfirmDialog(null,"Thêm thanh cong"+txtName+"!");
+                JOptionPane.showMessageDialog(null,"Thêm thành công");
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
             }
         }
     }//GEN-LAST:event_btnAddInfoActionPerformed
@@ -363,7 +366,7 @@ public class addInfor extends javax.swing.JFrame {
         String name = txtName.getText().toString();
     
     // Tạo câu truy vấn xóa thông tin
-    String query = "MATCH (i:Information {name:" + name + "}) DETACH DELETE i";
+        String query = "MATCH (i:Information {name:" + name + "}) DETACH DELETE i";
     
     try (Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "Phat121002@"))) {
         try (Session session = driver.session()) {

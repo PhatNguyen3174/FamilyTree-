@@ -86,6 +86,7 @@ public class addRela extends javax.swing.JFrame {
         btnsuaRela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(255, 51, 51));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
